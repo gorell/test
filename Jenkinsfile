@@ -4,6 +4,7 @@ pipeline {
         docker {
             image 'qnib/pytest'
         }
+    }
     stages {
         stage('Install') {
             steps {
