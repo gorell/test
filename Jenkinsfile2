@@ -10,9 +10,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            // Your Windows-specific build steps go here
                             bat 'echo "Running on Windows"'
-                            bat 'dir'
                         }
                     }
                 }
@@ -23,9 +21,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            // Your Linux-specific build steps go here
                             sh 'echo "Running on Linux"'
-                            sh 'ls -la'
                         }
                     }
                 }
