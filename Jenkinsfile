@@ -1,7 +1,6 @@
 
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
@@ -10,19 +9,12 @@ pipeline {
                 }
             }
         }
-
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 script {
                     sh 'python -m pytest test_add.py'
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            echo "end"
         }
     }
 }
