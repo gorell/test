@@ -11,14 +11,6 @@ pipeline {
             }
         }
 
-        stage('Install dependencies') {
-            steps {
-                script {
-                    sh 'pip install' 
-                }
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 script {
