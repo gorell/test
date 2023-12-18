@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Run Parallel Tests') {
             parallel {
-                stage('WindowsLabel') {
+                stage('Windows') {
                     agent {
-                        label 'Windows'
+                        label 'WindowsLabel'
                     }
                     steps {
                         script {
