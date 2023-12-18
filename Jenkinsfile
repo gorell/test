@@ -14,7 +14,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'pip install -r requirements.txt' 
+                    sh 'pip install' 
                 }
             }
         }
