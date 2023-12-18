@@ -22,7 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'pytest test_add.py'
+                    sh 'python -m pytest test_add.py'
                 }
             }
         }
