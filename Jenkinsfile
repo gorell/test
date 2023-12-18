@@ -6,22 +6,11 @@ pipeline {
         }
     }
     stages {
-        stage('Install') {
-            steps {
-                script {
-                    sh 'pip install pytest'
-                }
-            }
-        }
-
         stage('Test') {
             steps {
                 script {
-                     echo 'Start'
-                     sh 'PYTHONPATH=. pytest'
-                     echo 'End'
+                     sh 'python -m pytest'
                 }
-
             }
         }
     }
