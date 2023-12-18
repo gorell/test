@@ -1,19 +1,26 @@
 
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'qnib/pytest'
+        }
     stages {
-        stage('Checkout') {
+        stage('Install') {
             steps {
                 script {
-                    checkout scm
+                    sh 'pip install pytest'
                 }
             }
         }
+
         stage('Test') {
             steps {
                 script {
-                    sh 'python -m pytest test_add.py'
+                     echo 'Start'
+                     sh 'PYTHONPATH=. pytest'
+                     echo 'End'
                 }
+
             }
         }
     }
