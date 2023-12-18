@@ -4,17 +4,6 @@ pipeline {
     stages {
         stage('Run Jobs in Parallel') {
             parallel {
-                stage('Run on Windows') {
-                    agent {
-                        label 'windows'
-                    }
-                    steps {
-                        script {
-                            bat 'echo "Running on Windows"'
-                        }
-                    }
-                }
-
                 stage('Run on Linux') {
                     agent {
                         label 'linux'
@@ -22,6 +11,16 @@ pipeline {
                     steps {
                         script {
                             sh 'echo "Running on Linux"'
+                        }
+                    }
+                }
+                stage('Run on Windows') {
+                    agent {
+                        label 'windows'
+                    }
+                    steps {
+                        script {
+                            bat 'echo "Running on Windows"'
                         }
                     }
                 }
