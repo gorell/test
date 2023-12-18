@@ -2,25 +2,28 @@ pipeline {
     agent none
 
     stages {
-        stage('Run Jobs in Parallel') {
+        stage('Run Parallel Tests') {
             parallel {
-                stage('Run on Linux') {
+                stage('WindowsLabel') {
                     agent {
-                        label 'linux'
+                        label 'Windows'
                     }
                     steps {
                         script {
-                            sh 'echo "Running on Linux"'
+                            bat 'echo "Sleep 10 seconds on Windows Node"'
+                            bat 'powershell Start-Sleep -Seconds 10'
                         }
                     }
                 }
-                stage('Run on Windows') {
+
+                stage('Linux') {
                     agent {
-                        label 'windows'
+                        label 'LinuxLabel'
                     }
                     steps {
                         script {
-                            bat 'echo "Running on Windows"'
+                            sh 'echo "Sleep 10 seconds on Linux Node"'
+                            sh 'sleep 10'
                         }
                     }
                 }
