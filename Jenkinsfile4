@@ -6,7 +6,7 @@ pipeline {
             parallel {
                 stage('Windows') {
                     agent {
-                        label 'WindowsLabel'
+                        label 'Windows'
                     }
                     steps {
                         script {
@@ -18,7 +18,7 @@ pipeline {
 
                 stage('Linux') {
                     agent {
-                        label 'LinuxLabel'
+                        label 'Linux'
                     }
                     steps {
                         script {
