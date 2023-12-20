@@ -1,0 +1,33 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Run Parallel Tests') {
+            parallel {
+                stage('Windows') {
+                    agent {
+                        label 'WindowsLabel'
+                    }
+                    steps {
+                        script {
+                            bat 'echo "Sleep 10 seconds on Windows Node"'
+                            bat 'systeminfo'
+                        }
+                    }
+                }
+
+                stage('Linux') {
+                    agent {
+                        label 'LinuxLabel'
+                    }
+                    steps {
+                        script {
+                            sh 'echo "Sleep 10 seconds on Linux Node"'
+                            sh 'uname -a'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
